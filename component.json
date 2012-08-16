@@ -1,0 +1,11 @@
+{
+  "name": "clipboard",
+  "description": "Clipboard API wrapper",
+  "keywords": ["copy", "paste", "file", "clipboard"],
+  "version": "0.0.1",
+  "scripts": ["index.js"],
+  "dependencies": {
+    "component/file": "*",
+    "component/emitter": "*"
+  }
+}
