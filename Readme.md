@@ -49,6 +49,10 @@ clip.on('paste file', function(file){
 
   Unbind event handlers.
 
+## Links
+
+  - w3c [clipboard apis](http://www.w3.org/TR/clipboard-apis/)
+
 ## License
 
  MIT
