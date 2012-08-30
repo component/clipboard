@@ -77,16 +77,23 @@ Clipboard.prototype.oncut = function(e){
 Clipboard.prototype.onpaste = function(e){
   var self = this;
   var items = e.clipboardData.items;
-  this.emit('paste', e);
 
-  for (var i = 0; i < items.length; ++i) {
-    if ('file' == items[i].kind) {
-      this.emit('paste file', file(items[i].getAsFile()));
-      continue;
+  // file
+  if (items[1] && 'file' == items[1].kind) {
+    e.file = file(items[1].getAsFile());
+  } 
+
+  // text
+  items[0].getAsString(function(str){
+    e.text = str;
+    self.emit('paste', e);
+
+    // file
+    if (e.file) {
+      e.file.name = str;
+      self.emit('paste file', e.file, e);
+    } else {
+      self.emit('paste text', str, e);
     }
-
-    items[i].getAsString(function(str){
-      self.emit('paste text', str);
-    });
-  }
+  });
 };

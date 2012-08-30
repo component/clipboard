@@ -19,8 +19,18 @@
 
       var clip = new Clipboard(window);
 
-      clip.on('paste', function(){
-        console.log('paste');
+      clip.on('paste file', function(file){
+        console.log('paste file "%s"', file.name);
+        file.toDataURL(function(err, url){
+          var img = new Image;
+          img.src = url;
+          document.body.appendChild(img);
+          clip.unbind();
+        });
+      });
+
+      clip.on('paste text', function(str){
+        console.log('paste "%s"', str);
       });
       
       clip.on('cut', function(){
@@ -29,19 +39,6 @@
       
       clip.on('copy', function(e){
         console.log('copy');
-      });
-
-      clip.on('paste text', function(str){
-        console.log('paste "%s"', str);
-      });
-
-      clip.on('paste file', function(file){
-        file.toDataURL(function(err, url){
-          var img = new Image;
-          img.src = url;
-          document.body.appendChild(img);
-          clip.unbind();
-        });
       });
     </script>
   </body>

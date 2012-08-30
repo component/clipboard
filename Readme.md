@@ -16,7 +16,7 @@ var Clipboard = require('clipboard');
 
 var clip = new Clipboard(window);
 
-clip.on('paste', function(){
+clip.on('paste', function(e){
   console.log('paste');
 });
 
@@ -33,6 +33,7 @@ clip.on('paste text', function(text){
 });
 
 clip.on('paste file', function(file){
+  console.log(file.name)
   file.toDataURL(function(err, url){
     var img = new Image;
     img.src = url;
