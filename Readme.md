@@ -27,19 +27,6 @@ clip.on('cut', function(){
 clip.on('copy', function(e){
   console.log('copy');
 });
-
-clip.on('paste text', function(text){
-  console.log('paste "%s"', text);
-});
-
-clip.on('paste file', function(file){
-  console.log(file.name)
-  file.toDataURL(function(err, url){
-    var img = new Image;
-    img.src = url;
-    document.body.appendChild(img);
-  });
-});
 ```
 
 ### Clipboard#bind()
