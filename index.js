@@ -76,7 +76,7 @@ Clipboard.prototype.oncut = function(e){
 
 Clipboard.prototype.onpaste = function(e){
   var self = this;
-  var items = e.clipboardData.items;
+  var items = e.clipboardData.items || [];
   var pending = items.length;
 
   // file and filename
