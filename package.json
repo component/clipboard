@@ -6,7 +6,8 @@
   "scripts": ["index.js"],
   "dependencies": {
     "file-component": "*",
-    "emitter-component": "*"
+    "emitter-component": "*",
+    "normalized-upload": "0.0.1"
   },
   "component": {
     "scripts": {

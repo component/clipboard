@@ -12,7 +12,7 @@
     </style>
   </head>
   <body>
-    <script src="../build/build.js"></script>
+    <script src="build/build.js"></script>
     <textarea>Hello world</textarea>
     <script>
       var Clipboard = require('clipboard');
@@ -20,30 +20,15 @@
       var clip = new Clipboard(window);
 
       clip.on('paste', function(e){
-        // file
-        if (e.file) {
-          console.log('paste file "%s"', e.file.name);
-          e.file.toDataURL(function(err, url){
-            var img = new Image;
-            img.src = url;
-            document.body.appendChild(img);
-          });
-          return;
-        }
-
-        if (e.html) {
-          console.log('html "%s"', e.html);
-        }
-
-        if (e.plain) {
-          console.log('plain "%s"', e.plain);
-        }
+        e.items.forEach(function(item){
+          console.log(item);
+        });
       });
-      
+
       clip.on('cut', function(){
         console.log('cut');
       });
-      
+
       clip.on('copy', function(e){
         console.log('copy');
       });

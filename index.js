@@ -3,8 +3,9 @@
  * Module dependencies.
  */
 
-var file = require('file')
-  , Emitter = require('emitter');
+var normalize = require('normalized-upload');
+var Emitter = require('emitter');
+var file = require('file');
 
 /**
  * Expose `Clipboard`.
@@ -75,53 +76,7 @@ Clipboard.prototype.oncut = function(e){
  */
 
 Clipboard.prototype.onpaste = function(e){
-  var self = this;
-  var items = e.clipboardData.items || [];
-  var pending = items.length;
-
-  // file and filename
-  if (has(items, 'file')) {
-    // XXX: assuming ordering
-    e.file = file(items[1].getAsFile());
-    items[0].getAsString(function(str){
-      e.plain = str;
-      e.file.name = str;
-      self.emit('paste', e);
-    });
-    return;
-  }
-
-  // get string
-  function string(item) {
-    var subtype = item.type.split('/').pop();
-    item.getAsString(function(str){
-      e[subtype] = str;
-      --pending || self.emit('paste', e);
-    });
-  }
-
-  // populate by subtype
-  var len = pending;
-  for (var i = 0; i < len; ++i) {
-    if ('string' != items[i].kind) continue;
-    string(items[i]);
-  }
+  normalize(e, function(){
+    console.log(e.items);
+  });
 };
-
-/**
- * Check if `items` has an item with `type`
- * and return that item.
- *
- * @param {Arrayish} items
- * @param {String} type
- * @return {Object}
- * @api public
- */
-
-function has(items, type) {
-  for (var i = 0; i < items.length; ++i) {
-    if (type == items[i].kind) {
-      return items[i];
-    }
-  }
-}

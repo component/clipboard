@@ -13,28 +13,12 @@ $ component install component/clipboard
 
 ```js
 var Clipboard = require('clipboard');
-
 var clip = new Clipboard(window);
 
 clip.on('paste', function(e){
-  // file
-  if (e.file) {
-    console.log('paste file "%s"', e.file.name);
-    e.file.toDataURL(function(err, url){
-      var img = new Image;
-      img.src = url;
-      document.body.appendChild(img);
-    });
-    return;
-  }
-
-  if (e.html) {
-    console.log('html "%s"', e.html);
-  }
-
-  if (e.plain) {
-    console.log('plain "%s"', e.plain);
-  }
+  e.items.forEach(function(item){
+    console.log(item);
+  });
 });
 
 clip.on('cut', function(){
@@ -47,15 +31,6 @@ clip.on('copy', function(e){
 ```
 
 ## API
-
-### Files
-
-  Currently only a single file is exposed as `e.file`.
-
-## Strings
-
-  String pastes are assigned to `e` using their associated MIME subtype. For example
-  a "text/plain" representation as `e.plain`, "text/html" as `e.html` etc.
 
 ### Clipboard#bind()
 
