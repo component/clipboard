@@ -7,7 +7,7 @@
   "dependencies": {
     "file-component": "*",
     "emitter-component": "*",
-    "normalized-upload": "0.0.2"
+    "normalized-upload": "0.0.3"
   },
   "component": {
     "scripts": {
