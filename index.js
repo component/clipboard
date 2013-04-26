@@ -76,7 +76,8 @@ Clipboard.prototype.oncut = function(e){
  */
 
 Clipboard.prototype.onpaste = function(e){
+  var self = this;
   normalize(e, function(){
-    console.log(e.items);
+    self.emit('paste', e);
   });
 };
