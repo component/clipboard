@@ -6,6 +6,7 @@
 var normalize = require('normalized-upload');
 var Emitter = require('emitter');
 var file = require('file');
+var inherit = require('inherit');
 
 /**
  * Expose `Clipboard`.
@@ -29,7 +30,7 @@ function Clipboard(el) {
  * Inherits from `Emitter.prototype`.
  */
 
-Clipboard.prototype.__proto__ = Emitter.prototype;
+inherit(Clipboard, Emitter);
 
 /**
  * Bind event handlers.
