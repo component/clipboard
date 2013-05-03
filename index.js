@@ -26,10 +26,10 @@ function Clipboard(el) {
 }
 
 /**
- * Inherits from `Emitter.prototype`.
+ * Mixin emitter.
  */
 
-Clipboard.prototype.__proto__ = Emitter.prototype;
+Emitter(Clipboard.prototype);
 
 /**
  * Bind event handlers.
