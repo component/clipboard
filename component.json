@@ -5,8 +5,8 @@
   "version": "0.1.4",
   "scripts": ["index.js"],
   "dependencies": {
-    "component/file": "*",
-    "component/emitter": "*",
+    "component/file": "0.0.3",
+    "component/emitter": "1.0.0",
     "component/normalized-upload": "0.0.5"
   }
 }
