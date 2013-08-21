@@ -1,9 +1,16 @@
 {
   "name": "clipboard-component",
   "description": "Clipboard API wrapper",
-  "keywords": ["copy", "paste", "file", "clipboard"],
+  "keywords": [
+    "copy",
+    "paste",
+    "file",
+    "clipboard"
+  ],
   "version": "0.1.5",
-  "scripts": ["index.js"],
+  "scripts": [
+    "index.js"
+  ],
   "dependencies": {
     "file-component": "0.0.3",
     "emitter-component": "1.0.0",
@@ -13,5 +20,9 @@
     "scripts": {
       "clipboard/index.js": "index.js"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/component/clipboard.git"
   }
 }
