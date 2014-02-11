@@ -1,4 +1,13 @@
 
+0.1.6 / 2014-02-11
+==================
+
+  * package: rename to "component-clipboard"
+  * package: update dependencies
+  * component: update `file` and `emitter` versions
+  * add repository field to `package.json`
+  * refactor bindings
+
 0.1.5 / 2013-05-27
 ==================
 
