@@ -12,9 +12,9 @@
     "index.js"
   ],
   "dependencies": {
-    "file-component": "0.0.3",
-    "emitter-component": "1.0.0",
-    "normalized-upload": "0.0.x"
+    "component-file": "0.1.1",
+    "component-emitter": "1.1.2",
+    "component-normalized-upload": "0.0.6"
   },
   "component": {
     "scripts": {
