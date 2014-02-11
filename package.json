@@ -1,5 +1,5 @@
 {
-  "name": "clipboard-component",
+  "name": "component-clipboard",
   "description": "Clipboard API wrapper",
   "keywords": [
     "copy",
