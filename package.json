@@ -16,6 +16,11 @@
     "component-emitter": "1.2.0",
     "component-normalized-upload": "0.0.6"
   },
+  "browser": {
+    "file": "component-file",
+    "emitter": "component-emitter",
+    "normalized-upload": "component-normalized-upload"
+  },
   "component": {
     "scripts": {
       "clipboard/index.js": "index.js"
